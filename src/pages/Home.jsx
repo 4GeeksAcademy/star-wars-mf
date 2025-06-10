@@ -1,16 +1,15 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { Outlet } from "react-router-dom/dist"
+import ScrollToTop from "../components/ScrollToTop"
+import { Navbar } from "../components/Navbar"
+import { Footer } from "../components/Footer"
 
-export const Home = () => {
-
-  const {store, dispatch} =useGlobalReducer()
-
-	return (
-		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
-		</div>
-	);
-}; 
+// Base component that maintains the navbar and footer throughout the page and the scroll to top functionality.
+export const Layout = () => {
+    return (
+        <ScrollToTop>
+            <Navbar />
+                <Outlet />
+            <Footer />
+        </ScrollToTop>
+    )
+}
